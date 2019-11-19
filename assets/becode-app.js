@@ -9,11 +9,6 @@ Draw 3 graphs, hopefully...
 
 // Your scripting goes here...
 
-/* d3.select("#bodyContent")
-  .insert("svg", ":first-child")
-  .text("Am I at the right place?")
-  .style("color", "red");*/
-
 // ----- Create area for chart0 -----
 
 let table0 = document.getElementById("mw-content-text");
@@ -39,9 +34,12 @@ function fetchData() {
     });
 }
 
+// ----- Calling fucntion every second -----
+
 setInterval(fetchData, 1000);
 
-// ----- Create updating chart0 -----
+// ----- Creating chart0 -----
+
 function drawChart0() {
   let barChart0 = document.getElementById("chart0");
   barChart0.insertAdjacentHTML("afterend", "<svg id=svg0></svg>");
@@ -140,7 +138,7 @@ for (let i = 0; i < 35; i++) {
 }
 console.log(countryArray);
 
-// ----- Storing data per date -----
+// ----- Storing data per date ----- (not used)
 
 let dateArray = [];
 
@@ -219,7 +217,7 @@ for (let i = 2; i < 4; i++) {
   timePeriods.push(period);
 }
 
-// ----- Creating area of buttons for first chart interactions -----
+// ----- Creating area for BarChart1 -----
 
 let table1 = document.getElementById("table1");
 let area = table1.insertAdjacentHTML("beforebegin", "<div id=chart1></div>");
@@ -244,7 +242,7 @@ buttonsArray.map(button =>
     d3.select("svg").remove();
     let match = button.innerHTML;
 
-    // ----- Arrays of data -----
+    // ----- get array of data based on "match" -----
 
     let dataSet = getData(match);
 
@@ -257,7 +255,7 @@ buttonsArray.map(button =>
       }
     }
 
-    // ----- drawing first chart -----
+    // ----- drawing chart -----
 
     let barChart1 = document.getElementById("chart1");
     barChart1.insertAdjacentHTML("afterend", "<svg id=svg1></svg>");
@@ -347,7 +345,7 @@ buttonsArray2.map(button =>
     d3.select("#svg2").remove();
     let match = button.innerHTML;
 
-    // ----- Arrays of data -----
+    // ----- get array of data based on "match" -----
 
     let dataSet = getData(match);
 
